@@ -1,0 +1,286 @@
+.page {
+  width: 100%;
+  background: var(--color-white);
+}
+
+.frame {
+  position: relative;
+  width: calc(100% - clamp(40px, 5vw, 96px));
+  max-width: 1520px;
+  margin-inline: auto;
+  padding: clamp(2.5rem, 4.5vw, 4.5rem) 34px clamp(3rem, 5.5vw, 5.5rem);
+  border-inline: 1px solid rgb(17 17 17 / 14%);
+  overflow: hidden;
+}
+
+.intro {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(15rem, 0.7fr) minmax(0, 1.3fr);
+  gap: clamp(3rem, 7vw, 7rem);
+  padding-bottom: clamp(3rem, 5.5vw, 5.5rem);
+}
+
+.introIdentity {
+  position: relative;
+  z-index: 1;
+}
+
+.introLabel {
+  margin: 0;
+  color: #303030;
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 0.65rem + 0.6vw, 1.375rem);
+  font-weight: 600;
+  letter-spacing: 0.045em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.introBody,
+.copy {
+  max-width: 44rem;
+  color: #505050;
+}
+
+.introBody {
+  position: relative;
+  z-index: 1;
+  font-size: clamp(1rem, 1.1vw, 1.0625rem);
+  line-height: 1.6;
+}
+
+.introBody p + p,
+.copy p + p {
+  margin-top: 1rem;
+}
+
+.section {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(10rem, 0.45fr) minmax(0, 1.55fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  padding-block: clamp(2rem, 3.5vw, 3.5rem);
+  border-top: 1px solid rgb(17 17 17 / 14%);
+}
+
+.label {
+  position: relative;
+  z-index: 1;
+  color: #303030;
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 0.65rem + 0.6vw, 1.375rem);
+  font-weight: 600;
+  letter-spacing: 0.045em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.copy h2 {
+  max-width: 24ch;
+  margin: 0 0 clamp(1.25rem, 2vw, 2rem);
+  color: var(--color-black);
+  font-family: var(--font-display);
+  font-size: 1.6875rem;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+
+.copy p,
+.outcomes {
+  font-size: clamp(1rem, 1.1vw, 1.0625rem);
+  line-height: 1.6;
+}
+
+.signature {
+  margin-top: 1.25rem;
+  color: var(--color-black);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  line-height: 1.45;
+}
+
+.signature p + p {
+  margin-top: 0.125rem;
+  color: #707070;
+}
+
+.copy,
+.roleComposition {
+  position: relative;
+  z-index: 1;
+}
+
+.roleComposition {
+  display: grid;
+  grid-template-columns: minmax(12rem, 0.38fr) minmax(0, 0.62fr);
+  gap: clamp(2rem, 4vw, 4rem);
+  align-items: start;
+}
+
+.portrait {
+  width: 100%;
+  margin: 0;
+}
+
+.portraitImage {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.planLayers {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.planComposition {
+  position: absolute;
+  display: block;
+  aspect-ratio: 1;
+  background-repeat: no-repeat;
+  background-size: contain;
+  pointer-events: none;
+}
+
+.planCompositionTop {
+  top: 0;
+  right: -24%;
+  width: min(82vw, 78.375rem);
+  background-image: url("/images/architectural/about-plan-01.png");
+  background-position: right top;
+  opacity: 0.17;
+}
+
+.planCompositionBottom {
+  top: 52%;
+  left: -30%;
+  width: min(78vw, 78.375rem);
+  background-image: url("/images/architectural/about-plan-02.png");
+  background-position: left bottom;
+  opacity: 0.13;
+}
+
+.outcomes {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid rgb(17 17 17 / 14%);
+  list-style: none;
+}
+
+.outcomes li {
+  padding-block: 1rem;
+  border-bottom: 1px solid rgb(17 17 17 / 14%);
+}
+
+.ctaRow {
+  display: flex;
+  justify-content: center;
+  padding-top: clamp(2rem, 3.5vw, 3.5rem);
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.875rem clamp(1.625rem, 2vw, 2.125rem);
+  border: 1px solid rgb(17 17 17 / 12%);
+  background: rgb(17 17 17 / 4.5%);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.075em;
+  line-height: 1;
+  text-transform: uppercase;
+  transition: color 300ms ease, border-color 300ms ease, background-color 300ms ease;
+}
+
+.cta:hover,
+.cta:focus-visible {
+  border-color: rgb(17 17 17 / 16%);
+  background: rgb(17 17 17 / 6%);
+  color: var(--dg-accent);
+}
+
+@media (max-width: 64rem) {
+  .frame {
+    width: calc(100% - 32px);
+    padding-inline: 28px;
+  }
+
+  .intro {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .copy h2 {
+    font-size: 1.375rem;
+  }
+
+  .planCompositionTop {
+    right: -22%;
+    width: min(82vw, 78.375rem);
+    opacity: 0.13;
+  }
+
+  .planCompositionBottom {
+    left: -26%;
+    width: min(78vw, 78.375rem);
+    opacity: 0.1;
+  }
+}
+
+@media (max-width: 48rem) {
+  .frame {
+    width: 100%;
+    padding-inline: 20px;
+    border-inline: 0;
+  }
+
+  .section {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .copy h2 {
+    font-size: clamp(1.25rem, 5.5vw, 1.375rem);
+  }
+
+  .roleComposition {
+    grid-template-columns: 1fr;
+  }
+
+  .portrait {
+    width: min(100%, 28rem);
+  }
+
+  .planCompositionTop {
+    right: -92%;
+    width: min(118vw, 78.375rem);
+    opacity: 0.08;
+  }
+
+  .planCompositionBottom {
+    top: 54%;
+    left: -90%;
+    width: min(116vw, 78.375rem);
+    opacity: 0.06;
+  }
+}
+
+@media (min-width: 40.0625rem) and (max-width: 48rem) {
+  .planCompositionTop {
+    right: -28%;
+    width: min(72vw, 78.375rem);
+  }
+
+  .planCompositionBottom {
+    left: -32%;
+    width: min(68vw, 78.375rem);
+  }
+}
