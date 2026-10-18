@@ -1,0 +1,214 @@
+.page {
+  width: 100%;
+  background: var(--color-white);
+}
+
+.frame {
+  position: relative;
+  width: calc(100% - clamp(40px, 5vw, 96px));
+  max-width: 1520px;
+  margin-inline: auto;
+  padding: clamp(2.5rem, 4.5vw, 4.5rem) 34px clamp(3rem, 5.5vw, 5.5rem);
+  border-inline: 1px solid rgb(17 17 17 / 14%);
+  overflow: hidden;
+}
+
+.intro {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(15rem, 0.7fr) minmax(0, 1.3fr);
+  gap: clamp(3rem, 7vw, 7rem);
+  padding-bottom: clamp(3rem, 5.5vw, 5.5rem);
+}
+
+.label {
+  margin: 0;
+  color: #303030;
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 0.65rem + 0.6vw, 1.375rem);
+  font-weight: 600;
+  letter-spacing: 0.045em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.introBody {
+  position: relative;
+  z-index: 1;
+  font-size: clamp(1rem, 1.1vw, 1.0625rem);
+  line-height: 1.6;
+}
+
+.planLayers {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.planComposition {
+  position: absolute;
+  display: block;
+  aspect-ratio: 1;
+  background-repeat: no-repeat;
+  background-size: contain;
+  pointer-events: none;
+}
+
+.planCompositionTop {
+  top: 0;
+  right: -24%;
+  width: min(82vw, 78.375rem);
+  background-image: url("/images/architectural/about-plan-01.png");
+  background-position: right top;
+  opacity: 0.17;
+}
+
+.planCompositionBottom {
+  top: 52%;
+  left: -30%;
+  width: min(78vw, 78.375rem);
+  background-image: url("/images/architectural/about-plan-02.png");
+  background-position: left bottom;
+  opacity: 0.13;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.875rem clamp(1.625rem, 2vw, 2.125rem);
+  border: 1px solid rgb(17 17 17 / 12%);
+  background: rgb(17 17 17 / 4.5%);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.075em;
+  line-height: 1;
+  text-transform: uppercase;
+  transition: color 300ms ease, border-color 300ms ease, background-color 300ms ease;
+}
+
+.cta:hover,
+.cta:focus-visible {
+  border-color: rgb(17 17 17 / 16%);
+  background: rgb(17 17 17 / 6%);
+  color: var(--dg-accent);
+}
+
+.intro > *,
+.project,
+.individual,
+.additional,
+.details {
+  position: relative;
+  z-index: 1;
+}
+
+.introBody,
+.individual p,
+.description,
+.items {
+  color: #505050;
+  font-size: clamp(1rem, 1.1vw, 1.0625rem);
+  line-height: 1.6;
+}
+
+.project,
+.individual,
+.additional {
+  border-top: 1px solid rgb(17 17 17 / 14%);
+  padding-block: clamp(2rem, 3.5vw, 3.5rem);
+}
+
+.comparison {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.project > .comparison {
+  margin-top: clamp(2rem, 3.5vw, 3.5rem);
+}
+
+.service {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+  padding-inline: clamp(1.25rem, 2.5vw, 2.5rem);
+}
+
+.service:first-child { padding-left: 0; }
+.service:last-child { padding-right: 0; }
+.service + .service { border-left: 1px solid rgb(17 17 17 / 14%); }
+
+.serviceTitle {
+  min-height: 2.4em;
+  margin: 0 0 1.25rem;
+  color: var(--color-black);
+  font-family: var(--font-display);
+  font-size: 1.6875rem;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  overflow-wrap: anywhere;
+}
+
+.price {
+  margin: 0 0 1.25rem;
+  color: #303030;
+  font-size: 1.0625rem;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.price span { display: block; }
+.description { margin: 0 0 1.25rem; }
+.items { margin: 0 0 2rem; padding-left: 1.1rem; }
+.items li + li { margin-top: 0.375rem; }
+.cta { margin-top: auto; }
+
+.individual {
+  display: grid;
+  grid-template-columns: minmax(15rem, 0.7fr) minmax(0, 1.3fr);
+  gap: clamp(3rem, 7vw, 7rem);
+}
+
+.individual p { max-width: 44rem; }
+.additional .serviceTitle {
+  min-height: 4.8em;
+  font-size: clamp(1rem, 0.65rem + 0.6vw, 1.375rem);
+  font-weight: 600;
+  letter-spacing: 0.045em;
+  line-height: 1.2;
+}
+.additional .price { min-height: 3.2em; }
+
+.detail {
+  padding-block: clamp(2rem, 3.5vw, 3.5rem);
+  border-top: 1px solid rgb(17 17 17 / 14%);
+  scroll-margin-top: 8rem;
+}
+
+@media (max-width: 64rem) {
+  .frame { width: calc(100% - 32px); padding-inline: 28px; }
+  .intro, .individual { grid-template-columns: 1fr; gap: 2rem; }
+  .serviceTitle { font-size: 1.375rem; }
+  .planCompositionTop { opacity: 0.13; }
+  .planCompositionBottom { opacity: 0.1; }
+}
+
+@media (max-width: 48rem) {
+  .frame { width: 100%; padding-inline: 20px; border-inline: 0; }
+  .comparison { grid-template-columns: 1fr; gap: 2rem; }
+  .service, .service:first-child, .service:last-child { padding-inline: 0; }
+  .service + .service {
+    padding-top: 2rem;
+    border-left: 0;
+    border-top: 1px solid rgb(17 17 17 / 14%);
+  }
+  .serviceTitle, .additional .serviceTitle, .additional .price { min-height: 0; }
+  .serviceTitle { font-size: clamp(1.25rem, 5.5vw, 1.375rem); }
+  .planCompositionTop { right: -92%; width: 118vw; opacity: 0.08; }
+  .planCompositionBottom { left: -90%; width: 116vw; opacity: 0.06; }
+}
