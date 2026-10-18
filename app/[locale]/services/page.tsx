@@ -7,6 +7,7 @@ type Service = {
   id: string;
   title: string;
   prices: string[];
+  packageAmount?: string;
   description: string;
   items?: string[];
   path: string;
@@ -18,24 +19,27 @@ const packages: Service[] = [
     path: "interior-project#concept",
     title: "CONCEPT",
     prices: ["от 25 €/м²"],
+    packageAmount: "25",
     description: "Интериорна концепция без пълна техническа документация.",
-    items: ["Консултация и анализ", "Функционално разпределение", "Стилова посока и moodboard", "3D визуализации", "Основен продуктов подбор"],
+    items: ["Консултация и анализ", "Функционално разпределение", "Moodboard и стилова посока", "3D визуализации", "Основен подбор на материали"],
   },
   {
     id: "complete",
     path: "interior-project#complete",
     title: "COMPLETE",
     prices: ["от 40 €/м²"],
+    packageAmount: "40",
     description: "Цялостен интериорен проект с техническа документация.",
-    items: ["Всичко от CONCEPT", "Технически чертежи и детайли", "Ел., осветление и ВиК", "Мебели по поръчка", "Пълни спецификации"],
+    items: ["Всичко от CONCEPT", "Технически чертежи", "Ел., осветление и ВиК", "Разгъвки и мебели по поръчка", "Подробни спецификации"],
   },
   {
     id: "supervision",
     path: "interior-project#supervision",
     title: "COMPLETE + SUPERVISION",
     prices: ["от 55 €/м²"],
+    packageAmount: "55",
     description: "Цялостен проект с авторски надзор при реализацията.",
-    items: ["Всичко от COMPLETE", "Авторски надзор", "Посещения на обекта", "Проектни консултации", "Проследяване на изпълнението"],
+    items: ["Всичко от COMPLETE", "Авторски надзор", "Посещения на обекта", "Проверка на ключови решения", "Консултации при реализацията"],
   },
 ];
 
@@ -68,12 +72,22 @@ function ServiceOverview({ service, locale, standalone = false }: { service: Ser
 
   return (
     <article className={styles.service} aria-labelledby={`${service.id}-overview`}>
-      <Heading className={styles.serviceTitle} id={`${service.id}-overview`}>{service.title}</Heading>
-      <p className={styles.price}>
-        {service.prices.map((price) => <span key={price}>{price}</span>)}
-      </p>
+      <Heading className={styles.serviceTitle} id={`${service.id}-overview`}>
+        {service.id === "supervision" ? <>COMPLETE +<br />SUPERVISION</> : service.title}
+      </Heading>
+      {service.packageAmount ? (
+        <p className={styles.packagePrice}>
+          <span className={styles.pricePrefix}>от</span>{" "}
+          <span className={styles.priceAmount}>{service.packageAmount}</span>{" "}
+          <span className={styles.priceUnit}>€/м²</span>
+        </p>
+      ) : (
+        <p className={styles.price}>
+          {service.prices.map((price) => <span key={price}>{price}</span>)}
+        </p>
+      )}
       <p className={styles.description}>{service.description}</p>
-      {service.items && <ul className={styles.items}>
+      {service.items && <ul className={styles.items} role="list">
         {service.items.map((item) => <li key={item}>{item}</li>)}
       </ul>}
       <Link className={styles.cta} href={`/${locale}/services/${service.path}`} aria-label={`Научете повече: ${service.title}`}>
